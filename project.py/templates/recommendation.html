@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Movies</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .recommendation-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .recommended-movie {
+            margin-bottom: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        .movie-details {
+            overflow: hidden;
+            padding-top: 20px;
+        }
+        .movie-title {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .similarity-score {
+            margin: 0;
+            color: #666;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Movies</h1>
+        <ul class="recommendation-list">
+            {% for movie, similarity in recommended_movies %}
+            <li class="recommended-movie">
+                <div class="movie-details">
+                    <h2 class="movie-title">{{ movie }}</h2>
+                    <p class="similarity-score">Similarity Score: {{ similarity }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

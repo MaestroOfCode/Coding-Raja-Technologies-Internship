@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f3f3;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .movie-form {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .movie-select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            outline: none;
+        }
+        .recommendation-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .recommended-movie {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        .movie-poster {
+            max-width: 100px;
+            height: auto;
+            float: left;
+            margin-right: 10px;
+        }
+        .movie-details {
+            overflow: hidden;
+            padding-top: 10px;
+        }
+        .movie-title {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+        .similarity-score {
+            margin: 0;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Movie Recommendation System</h1>
+        <form class="movie-form" action="/recommend" method="post">
+            <label for="selected_movie">Select a movie:</label>
+            <select class="movie-select" name="selected_movie" id="selected_movie">
+                {% for movie in available_movies %}
+                <option value="{{ movie }}">{{ movie }}</option>
+                {% endfor %}
+            </select>
+            <button type="submit">Get Recommendations</button>
+        </form>
+    </div>
+</body>
+</html>
